@@ -42,7 +42,7 @@ router.delete('/delete/:user', (req, res)=> { deleteUser(req, res) })
 // ERRORS
 router.use((err, req, res, next)=> {
     if (err.name === "UnauthorizedError") {
-        res.json({ success: false, msg: 'Unauthorized' })
+        res.status(401).json({ success: false, msg: 'Unauthorized' })
     } else {
         next(err);
     }
